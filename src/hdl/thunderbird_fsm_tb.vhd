@@ -129,6 +129,7 @@ begin
                assert w_lights_R = "000" report "no right lights should be on" severity failure;
            w_R <= '0'; wait for k_clk_period;
            w_R <= '1'; w_L <= '1';
+               wait for k_clk_period;
                assert w_lights_L = "111" and w_lights_R = "111" report "hazards should be on" severity failure;
                wait for k_clk_period;
                assert w_lights_L = "000" and w_lights_R = "000" report "hazards should be off" severity failure;
